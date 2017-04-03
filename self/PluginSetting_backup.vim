@@ -1,39 +1,3 @@
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
-" Configure CtrlP and CtrlPFunky
-map <Leader>p :CtrlPMixed<CR>
-map <Leader>pf :CtrlPFunky<CR>
-
-let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_extensions = ['funky']
-
-" EasyMotion
-let g:EasyMotion_smartcase = 1
-map <Leader> <Plug>(easymotion-prefix)
-map <Leader>f <Plug>(easymotion-bd-f)
-map <Leader>w <Plug>(easymotion-bd-w)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-" easy to use NERDTree
-map <leader>e :NERDTreeToggle %:p:h<CR>
-map <leader>m :NERDTreeFind<CR>F2
-map <leader>F :FufFile<CR>
-map <leader>B :FufBuffer<CR>
-map <leader>J :FufJumpList<CR>
-
-" Tagbar
-nmap <Leader>t :TagbarToggle<CR>
-
-" Theme
-let g:airline_theme = 'murmur'
-
-" Python-mode
-let g:pymode_options_max_line_length = 120
-let g:pep8_ignore="E501,W601"
-let g:pymode_folding = 0
-let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
-
 " add tag to tag search path
 function! s:AddTag(path)
     let cp = fnamemodify(a:path, ':p:h')
@@ -89,3 +53,40 @@ call extend(g:NERDTreeIgnore, ['^libs$[[dir]]'])
 let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
 autocmd BufReadPost quickfix call ack#ShowResults()
 
+" easymotion 配置
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase = 1
+map  <leader>/ <Plug>(easymotion-sn)
+omap <leader>/ <Plug>(easymotion-tn)
+
+" JK motions: Line motions
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" easy to use NERDTree
+map <leader>e :NERDTreeToggle %:p:h<CR>
+map <leader>m :NERDTreeFind<CR>
+
+map <leader>F :FufFile<CR>
+map <leader>B :FufBuffer<CR>
+map <leader>J :FufJumpList<CR>
+
+" fugitive settings.
+autocmd BufNewFile,BufRead COMMIT_EDITMSG :startinsert!
+nmap <leader>ga :Git add --patch<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+
+nnoremap <leader>fu :CtrlPFunky<CR>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+let g:ctrlp_funky_matchtype = 'path'
+let g:airline_theme = 'murmur'
+let g:pymode_options_max_line_length = 120
+let g:pep8_ignore="E501,W601"
+let g:pymode_folding = 0
+
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}

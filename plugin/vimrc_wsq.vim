@@ -108,10 +108,6 @@ au BufRead,BufNewFile *.xaml set filetype=xml
 " file type 2014/3/9/
 autocmd FileType python set fileformat=unix
 
-" Mon Sep 19 10:49:18 CST 2011 new a tab.
-:nmap <Leader>t :tabnew<CR>
-:imap <C-t> <C-o>:tabnew<CR>
-
 " Tue Sep 27 09:07:03 CST 2011 switch tabs.
 :nmap <Leader>1 :tabfirst<CR>
 :nmap <Leader>2 :tabprevious<CR>
