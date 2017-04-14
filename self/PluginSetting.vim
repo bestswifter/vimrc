@@ -89,3 +89,5 @@ call extend(g:NERDTreeIgnore, ['^libs$[[dir]]'])
 let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
 autocmd BufReadPost quickfix call ack#ShowResults()
 
+" Unite outline
+map <leader>u :Unite outline -vertical -winwidth=50<CR>
