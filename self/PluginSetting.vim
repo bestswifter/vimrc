@@ -91,3 +91,24 @@ autocmd BufReadPost quickfix call ack#ShowResults()
 
 " Unite outline
 map <leader>u :Unite outline -vertical -winwidth=50<CR>
+
+" A.vim
+let g:alternateExtensions_m = "h"
+let g:alternateExtensions_h = "m"
+map <leader>s :A<CR>
+
+" Syntastic
+" Show sidebar signs.
+let g:syntastic_enable_signs=1
+
+" Read the clang complete file
+let g:syntastic_objc_config_file = '.clang_complete'
+
+" Status line configuration
+set statusline+=%#warningmsg#  " Add Error ruler.
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+nnoremap <silent> ` :Errors<CR>
+"
+" Tell it to use clang instead of gcc
+let g:syntastic_objc_checker = 'clang'
