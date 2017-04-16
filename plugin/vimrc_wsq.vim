@@ -24,6 +24,8 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
 set encoding=utf-8
 set termencoding=utf-8
+" set tags=./tags,tags;$HOME
+set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags,tags;$HOME
 
 syntax on
 
